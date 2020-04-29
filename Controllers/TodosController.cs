@@ -85,7 +85,7 @@ namespace TodoAPI.Controllers
         [HttpDelete("{id}")]
         public async Task<ActionResult<TodoItem>> DeleteTodoItem(long id)
         {
-            var item =await  _context.TodoItems.FirstOrDefaultAsync();
+            var item =await  _context.TodoItems.FindAsync(id);
             if (item == null)
             {
                 return NotFound();
